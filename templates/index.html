@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+
+    <title>Sungai Citarum</title>
+</head>
+<body>
+    <!--tab section-->
+    <section id="tab">
+        <div class="tab container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="#header"><h1>Welcome</h1></a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger"><div class="bar"></div></div>
+                    <ul>
+                        <li><a href="#header" data-after="Home">Home</a></li>
+                        <li><a href="#aboutus" data-after="Tentang Kami">Tentang Kami</a></li>
+                        <li><a href="#prediction" data-after="Prediksi Bencana">Prediksi Bencana</a></li>
+                        <li><a href="#data" data-after="Data Real-Time">Data Real-Time</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--tab end section-->
+
+    <!--header section-->
+    <section id="header">
+        <div class="header container">
+            <div>
+                <h1>Sungai Citarum,<span></span></h1>
+                <h1>Jawa Barat<span></span></h1>
+                <a href="#" type="button" class="about">Tentang Kami</a>
+            </div>
+        </div>
+    </section>
+    <!--header end section-->
+
+    <!--about section-->
+    <section id="aboutus">
+        <div class="aboutus container">
+            <div class="aboutus-top">
+                <h1 class="section-title">Tentang <span>Kami</span></h1>
+                <p>Sungai terpanjang dan terbesar di Tatar Pasundan Provinsi Jawa Barat, Indonesia. Sungai dengan nilai sejarah, ekonomi, dan sosial yang penting ini sejak 2007 menjadi salah satu dari sungai dengan tingkat ketercemaran tertinggi di dunia. 
+                Jutaan orang tergantung langsung hidupnya dari sungai ini. Citarum disusun oleh dua kata yaitu Ci yang artinya sungai atau air dan tarum yang merupakan nama tumbuhan penghasil warna nila. 
+                Dari asal usul kata ini bisa disimpulkan bahwa pada zaman dahulu banyak tumbuhan tarum di sepanjang Citarum.</p>
+            </div>
+        </div>
+    </section>
+    <!--about end section-->
+
+    <!--prediction section-->
+    <section id="prediction">
+        <div class="prediction container">
+            <div class="prediction-header">
+                <h1 class="section-title">Prediksi <span>Bencana</span></h1>
+                <p>Dibagian ini kamu dapat memprediksi status dari kondisi sungai citarum secara otomatis dengan menginput data curah hujan dan ketinggian air yang didapatkan dari data real-time.</p>
+            </div>
+            <div class="prediction-bottom">
+                <div class="prediction-item">
+                    <form class="form-horizontal" action="{{ url_for('predict')}}"method="post">
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                              <input  class="form-control" type= "text" name="Ketinggian Air" placeholder="Ketinggian Air" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-10">
+                              <input  class="form-control" type="text" name="Curah Hujan" placeholder="Curah Hujan" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                             <center><button type="submit" class="button btn btn-default">PREDICT</button></center>
+                            </div>
+                          </div>
+                        <br>
+                            <center><b><h2 style="color:#FF0000";>{{ prediction_text}}</h2></b></center> 
+                        <br>
+                    <h2 class="result"></h2>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--prediction end section-->
+
+    <!--data real-time section-->
+    <section id="data">
+        <div class="data container">
+            <div class="data-header">
+                <h1 class="section-title">Data <span>Real-Time</span></h1>
+            </div>
+        </div>
+    </section>
+    <!--data real-time end section-->
+    <script src="{{url_for('static',filename='js/app.js')}}"></script>
+</body>
+</html>
